@@ -29,11 +29,13 @@ for repo in repos:
         project_name = repo["name"]
         url = repo["html_url"]
         description = repo["description"]
+        language = repo["language"]
 
         projects.append({
             "project_name": project_name,
             "url": url,
-            "description": description
+            "description": description,
+            "language": language
         })
 
 with open("./index.mustache", "r") as template:
