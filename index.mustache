@@ -3,12 +3,12 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="description" content="At Voxa, we love to open source. Here's a few of our open source projects." />
+        <meta name="description" content="At {{org_name}}, we love to open source. Here's a few of our open source projects." />
 
         <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
         <link href="/favicon.ico" rel="icon" />
 
-        <title>Voxa 💕 Open Source</title>
+        <title>{{org_name}} 💕 Open Source</title>
     </head>
 
     <body class="bg-gray-50">
@@ -23,10 +23,15 @@
         <main class="max-w-7xl mx-auto py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
 
             <div class="text-center">
-                <p class="text-5xl font-extrabold text-gray-900 sm:text-6xl sm:tracking-tight lg:text-7xl">Voxa 💕 Open Source
+                <p class="text-5xl font-extrabold text-gray-900 sm:text-6xl sm:tracking-tight lg:text-7xl">{{org_name}} 💕 Open Source
                 </p>
                 <p class="text-xl max-w-2xl lg:max-w-4xl mt-5 mx-auto text-gray-500 sm:text-2xl lg:text-3xl">At
-                Voxa,
+                {{#site_url}}
+                <a class="underline" href="{{site_url}}">{{org_name}},</a>
+                {{/site_url}}
+                {{^site_url}}
+                {{org_name}},
+                {{/site_url}}
                 we're dedicated to
                     building open source
                     projects everyone can use. Here's some of the stuff we've built.</p>
@@ -35,36 +40,23 @@
 
             <div class="relative max-w-7xl mx-auto">
                 <div class="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
+                    {{#projects}}
                     <div
                         class="flex flex-col rounded-lg overflow-hidden transform hover:-rotate-2 transition border border-4 shadow-lg">
                         <div class="flex-1 bg-white p-6 flex flex-col justify-between">
                             <div class="flex-1">
-                                <a href="https://github.com/voxa/vin" class="block mt-2">
+                                <a href="{{url}}" class="block mt-2">
                                     <p class="text-xl font-semibold text-gray-900 lowercase">
-                                        vin
+                                        {{project_name}}
                                     </p>
                                     <p class="mt-3 text-base text-gray-500">
-                                        A Typescript package for validating North American vehicle identification numbers (VINs) 🚗
+                                        {{description}}
                                     </p>
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <div
-                        class="flex flex-col rounded-lg overflow-hidden transform hover:-rotate-2 transition border border-4 shadow-lg">
-                        <div class="flex-1 bg-white p-6 flex flex-col justify-between">
-                            <div class="flex-1">
-                                <a href="https://github.com/voxa/voxa.github.io" class="block mt-2">
-                                    <p class="text-xl font-semibold text-gray-900 lowercase">
-                                        voxa.github.io
-                                    </p>
-                                    <p class="mt-3 text-base text-gray-500">
-                                        An easily customisable site showcasing open source software packages built by Voxa ✨
-                                    </p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                    {{/projects}}
                 </div>
             </div>
         </main>
